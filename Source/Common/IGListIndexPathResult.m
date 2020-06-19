@@ -55,6 +55,12 @@
       [filteredUpdates removeObject:move.from];
       [deletes addObject:move.from];
       [inserts addObject:move.to];
+    
+    } else if ([deletes containsObject:move.from]) {
+      [filteredMoves removeObjectAtIndex:i];
+      if (![inserts containsObject:move.to]) {
+        [inserts addObject:move.to];
+      }
     }
   }
   
